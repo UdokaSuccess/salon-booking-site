@@ -136,7 +136,7 @@ app.get('/payment/verify', async (req, res) => {
       console.log(bookingprofile)
     await bookingprofile.save()
     // res.status(201).json({bookingprofile})
-    res.redirect(`http://127.0.0.1:5500/success.html?id=${bookingprofile._id}`)
+    res.redirect(`https://salon-booking-site-jnx7.vercel.app/success.html?id=${bookingprofile._id}`)
     }
 
     res.send('Payment failed!')
