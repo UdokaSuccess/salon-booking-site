@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/UI/style.css">
+    <title>Document</title>
+</head>
+<body>
+    <header>
+          <a href="/UI/landing.html" class="landing-route">Lumiere</a>
+          <a href="/landing.html" class="landing-route">About</a>
+          <a href="/landing/services.html" class="landing-route">Services</a>
+          <a href="/landing.html" class="landing-route">Contact</a>
+          <a href="/UI/index.html" class="landing-route booking">Book Appointment</a>
+        </header>
+    <div class="confirmation" id="bookingDetails">
+        Wait a minute.... 
+    </div>
+
+
+
+
+
+
+
+<script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+<script>
+    // Get booking ID from URL
+    const urlParams = new URLSearchParams(window.location.search);
+    const bookingId = urlParams.get('id');
+    
+    // Fetch booking details
+   const loadBookingDetails = async () => {
+        try {
+            const response = await fetch(`http://localhost:3000/bookings`);
+            const bookings = await response.json();
+            
+           const yourbookingsummary = bookings.find(booking => booking._id === bookingId)
+
+            // Display booking info
+            document.getElementById('bookingDetails').innerHTML = `
+            <div class= 'success-img'>
+                <div class='success-heading'>
+                <h2>Booking Confirmed!</h2> 
+                <button id='success-btn' onclick='downloadImg()'>Download</button>
+                </div>
+                <p>Customer: ${yourbookingsummary.name}</p>
+                <p>Service: ${yourbookingsummary.service}</p>
+                <p>Price: ${yourbookingsummary.price}</p>
+                <p>Date: ${yourbookingsummary.date}</p>
+                <p>Time: ${yourbookingsummary.bookingTime}</p>
+                <p>Name: ${yourbookingsummary.name}</p>
+                <p>Booking ID: ${bookingId}</p>
+                <p>Contact person: Ella, 020343085938</p>
+                <p class='contact-sub'>To cancel or reschedule, reach out to Ella, our contact person</p>
+               
+                
+                </div>`;
+        } catch (error) {
+            console.error('Error:');
+        }
+    }
+
+     const downloadImg = async () =>{
+            const element = document.getElementById('bookingDetails');
+            
+            // Convert HTML to canvas
+            const canvas = await html2canvas(element);
+            console.log('converting...')
+            
+            // Convert canvas to image and download
+            const image = canvas.toDataURL('image/png');
+            const link = document.createElement('a');
+            link.href = image;
+            link.download = `booking-${bookingId}.png`;
+            link.click();
+        }
+
+    
+    loadBookingDetails();
+</script>
+
+</body>
+</html>

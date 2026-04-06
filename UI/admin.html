@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/UI/admin.css">
+    <title>Admin Dashboard - Lumiere</title>
+</head>
+
+<body>
+    <div class="admin-container">
+        <header class="admin-header">
+            <h1>Lumiere Admin</h1>
+            <button class="btn-logout">Logout</button>
+        </header>
+
+        <section class="admin-section" >
+            <h2>Today's Bookings</h2>
+            <section id="admin-today">
+
+            </section>
+           
+        </section>
+
+        <section id="admin-section">
+
+        </section>
+
+        
+        <!-- Section 3: Time Slot Manager -->
+        <section class="admin-section">
+            <h2>Time Slot Manager</h2>
+            <p class="section-description">Block or unblock specific time slots to control availability</p>
+            
+            <div class="timeslot-controls">
+                <div class="control-group">
+                    <label for="admin-date-picker">Select Date:</label>
+                    <input type="date" id="admin-date-picker">
+                </div>
+                
+                <div class="control-group">
+                    <label for="time-period">Time of Day:</label>
+                    <select id="time-period">
+                        <option value="morning">Morning</option>
+                        <option value="afternoon">Afternoon</option>
+                        <option value="evening">Evening</option>
+                    </select>
+                </div>
+            </div>
+            
+            <div class="timeslots-container">
+                
+                <!-- Available slot -->
+                <div class="timeslot-item available">
+                    <span class="time">8:30am</span>
+                    <span class="status-badge">Available</span>
+                    <button class="btn-toggle">Block</button>
+                </div>
+
+                <!-- Booked slot -->
+                <div class="timeslot-item booked">
+                    <span class="time">9:30am</span>
+                    <span class="status-badge">Booked</span>
+                </div>
+
+                <div class="timeslot-item available">
+                    <span class="time">11:30am</span>
+                    <span class="status-badge">Available</span>
+                    <button class="btn-toggle">Block</button>
+                </div>
+
+                <div class="timeslot-item blocked">
+                    <span class="time">1:00pm</span>
+                    <span class="status-badge">Blocked</span>
+                    <button class="btn-toggle">Unblock</button>
+                </div>
+
+                <div class="timeslot-item available">
+                    <span class="time">2:00pm</span>
+                    <span class="status-badge">Available</span>
+                    <button class="btn-toggle">Block</button>
+                </div>
+
+                <div class="timeslot-item available">
+                    <span class="time">3:30pm</span>
+                    <span class="status-badge">Available</span>
+                    <button class="btn-toggle">Block</button>
+                </div>
+
+            </div>
+        </section>
+    </div>
+
+    <script src="/UI/admin.js"></script>
+</body>
+</html>

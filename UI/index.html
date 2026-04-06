@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Lumiere</title>
+</head>
+<body>
+  <header>
+          <a href="/UI/landing.html" class="landing-route">Lumiere</a>
+          <a href="/landing.html" class="landing-route">About</a>
+          <a href="/landing/services.html" class="landing-route">Services</a>
+          <a href="/landing.html" class="landing-route">Contact</a>
+          <a href="/UI/index.html" class="landing-route booking">Book Appointment</a>
+        </header>
+        
+ <form id="form" onsubmit="submitForm(event)">
+  <section class="col-1">
+  <!-- <a href="/UI/admin.html">Admin page</a> -->
+   
+      <h1>Book your visit</h1>
+
+    <h3 class="label-title">Select Service</h3>
+        <div class="select-service">
+             <div><input type="radio" name="service" class="service" required value="braid">Braiding</div>
+            <div><input type="radio" name="service" class="service" required value="grooming">Hair and beard grooming</div>
+            <div><input type="radio" name="service" class="service" required value="wigs"> Wig and weavon</div>
+            <div><input type="radio" name="service" class="service"required value="naturalhair">Hair treatment</div>
+        </div>
+
+        <!-- hidden Card for each sevice  -->
+<div class="service-section" id="braids">
+   <div class="time-card">
+    <label class="time-block">
+      <input type="radio" name="serviceItem" value="Knotless braids" data-price="₦20,000" required>Knotless braids
+    </label>
+    <input type="hidden" value="20000" name="price">
+  </div>
+
+   <div class="time-card">
+    <label class="time-block">
+      <input type="radio" name="serviceItem" value="Ghana weaving" data-price="₦15,000" required>Ghana weaving
+    </label>
+    <input type="hidden" value="15000" name="price">
+  </div>
+
+   <div class="time-card">
+    <label class="time-block"><input type="radio" name="serviceItem" value="Boho braids" data-price="₦20,000" required>Boho braids
+    </label>
+    <input type="hidden" value="20000" name="price">
+  </div>
+
+   <div class="time-card">
+    <label class="time-block"><input type="radio" name="serviceItem" value="French curls" data-price="₦18,000" required>French curls
+    </label>
+    <input type="hidden" value="18000" name="price">
+  </div>
+</div>
+
+<!-- Another service -->
+<div class="service-section" id="cut">
+  <div class="time-card">
+    <label class="time-block">
+      <input type="radio" name="serviceItem" value="Low cut" data-price="₦10,000" required>Low cut
+    </label> 
+      <input type="hidden" value="10000" name="price">
+  </div>
+
+   <div class="time-card">
+    <label class="time-block">
+      <input type="radio" name="serviceItem" value="Skin cut" data-price="₦8,000" required>Skin cut
+    </label>
+    <input type="hidden" value="8000" name="price">
+  </div>
+
+   <div class="time-card">
+    <label class="time-block">
+      <input type="radio" name="serviceItem" value="Hair dyeing" data-price="₦15,000" required>Hair dyeing
+    </label>
+    <input type="hidden" value="15000" name="price">
+  </div>
+
+   <div class="time-card">
+    <label class="time-block">
+      <input type="radio" name="serviceItem" value="Afro cut" data-price="₦9,000" required>Afro cut
+    </label>
+    <input type="hidden" value="9000" name="price">
+  </div>
+</div>
+
+
+  <!-- Another service -->
+<div class="service-section" id="wigs">
+   <div class="time-card">
+    <label class="time-block">
+      <input type="radio" name="serviceItem" value="Wig and frontal installation" data-price="₦25,000" required>Wig and frontal installation
+    </label>
+    <input type="hidden" value="25000" name="price">
+  </div>
+
+   <div class="time-card">
+    <label class="time-block">
+      <input type="radio" name="serviceItem" value="Weavon / Sew-in" data-price="₦15,000" required>Weavon / Sew-in
+    </label>
+        <input type="hidden" value="15000" name="price">
+  </div>
+ </div>
+
+<!-- Another service -->
+<div class="service-section" id="natural-hair">
+   <div class="time-card">
+    <label class="time-block">
+      <input type="radio" name="serviceItem" value="Blow-Drying" data-price="₦10,000" required>Blow-Drying
+    </label>
+    <input type="hidden" value="15000" name="price">
+  </div>
+
+   <div class="time-card">
+    <label class="time-block">
+      <input type="radio" name="serviceItem" value="Silk-press" data-price="₦15,000" required>Silk-press
+    </label>
+  <input type="hidden" value="15000" name="price">
+  </div>
+</div>
+
+
+<!-- Date/time section -->
+ <div class="date-time">
+    <h3>Date and Time</h3>
+     <p>Only available time slots are displayed</p>
+     
+     <label for="">Preffered date</label>
+     <input type="date" class="date-input" name="date" min="" required>
+     
+     <div class="select-service">
+            <label for="">Time of the day</label> 
+            <div><input type="radio" name="time" class="time" value="morning" required> Morning</div>
+
+            <div><input type="radio" name="time" class="time" value="afternoon" required> Afternoon</div>
+
+            <div> <input type="radio" name="time" class="time" value="evening" required> Evening</div>
+        </div>
+
+        <div class="time-slots" id="morning-time">
+            <label>Available slots</label>
+             <div class="time-card"><label class="time-block"><input type="radio" name="bookingTime" value="8.00am" required>8:00am</label></div>
+             <div class="time-card"><label class="time-block"><input type="radio" name="bookingTime" value="9.30am" required>9:30am</label></div>
+             <div class="time-card"><label class="time-block"><input type="radio" name="bookingTime" value="11.30am" required>11:30am</label></div>             
+
+        </div>
+
+         <div class="time-slots" id="afternoon-time">
+            <label>Available slots</label>
+             <div class="time-card"><label class="time-block"><input type="radio" name="bookingTime" value="1.00pm" required>1:00pm</label></div>
+             <div class="time-card"><label class="time-block"><input type="radio" name="bookingTime" value="2.00pm" required>2:00pm</label></div>
+             <div class="time-card"><label class="time-block"><input type="radio" name="bookingTime" value="3.30pm" required>3:30pm</label></div> 
+        </div>
+
+        <div class="time-slots" id="evening-time">
+            <label>Available slots</label>
+              <div class="time-card"><label class="time-block"><input type="radio" name="bookingTime" value="4.30pm" required>4:30pm</label></div>
+             <div class="time-card"><label class="time-block"><input type="radio" name="bookingTime" value="5.30pm" required>5:30pm</label></div> 
+        </div>
+        
+ </div>  
+ </section>
+ <section class="col-2">
+    <div class="details-form">
+        <h3>Your Details</h3>
+
+            <label for="">Full name </label>
+            <input type="text" placeholder="Enter your name" class="input-details" required name="name">
+ 
+            <label for="">Email</label>
+            <input type="email" placeholder="Enter your Email" class="input-details" required name="email"> 
+
+            <label for="">Mobile number</label>     
+            <input type="tel" placeholder="For call or sms reminders" class="input-details" required name="phone">
+
+            <label for="">Preferred stylist (optional)</label>
+            <input type="text" placeholder="Name of stylist" class="input-details" name="stylist">
+
+            <label for="">Note for stylist (optional)</label>
+            <input type="text" placeholder="Share your goals, inspiration, hair allergies" class="input-details" name="note">
+
+
+           <div class="summary-container">
+
+
+        </div>
+         <sub>The commitment fee validates your booking and is fully credited towards your service. 
+           On arrival, you will pay the remaining part of your service.</sub>
+         <button class="button" id="submit">Check Out</button> 
+
+
+    </section>  
+</form>
+
+<footer>
+<p>Working hours: 8am - 6pm <br>Mon - Sun</p>
+<p>Lumiere Contact Person: Ella</p>
+<p>Telephone: 0202890839</p>
+<p>Email: lumiere@gmail.com</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
